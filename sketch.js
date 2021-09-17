@@ -58,6 +58,7 @@ function draw() {
   
     // Increase score if sword touching fruit
     if(fruitGroup.isTouching(knife)){
+      score= score+2
       fruitGroup.destroyEach();
       knifeSwooshSound.play();
     }
@@ -94,6 +95,7 @@ function draw() {
 function Monster(){
   if(World.frameCount%200===0){
     monster=createSprite(400,200,20,20);
+    monster.velocityX = -(8 + (score/10));
     monster.addAnimation("moving", monsterImage);
     monster.y=Math.round(random(100,550));
     //update below give line of code for increase monsterGroup speed by 10
